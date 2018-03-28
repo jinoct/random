@@ -26,18 +26,24 @@ for region in regions:
     responseset = ec2.describe_vpcs()
     for item in responseset['Vpcs']:
         print([item][0]['VpcId'], [item][0]['CidrBlock'])
-# Information on all Dynamo DBs
+# Information on all Dynamo DB Tables
     print("Dynamo DB information")
     print("--------------------------------------------------------------------------------------------------")
     ddb = session.client('dynamodb', region_name=region)
     responsesetddb = ddb.list_tables()
     for item in responsesetddb['TableNames']:
         print([item][0])
-    print("RDS Information")
 # Information on all RDS Instances
+    print("RDS Information")
     print("--------------------------------------------------------------------------------------------------")
     rdsdb = session.client('rds',region_name=region)
     responsesetrds = rdsdb.describe_db_instances()
     for item in responsesetrds['DBInstances']:
         print([item][0]['DBInstanceIdentifier'])
+#Information on all EMR clusters
+    print("EMR Information")
     print("--------------------------------------------------------------------------------------------------")
+    emrc = session.client('emr', region_name=region)
+    responsesetemr = emrc.list_clusters()
+    for item in responsesetemr['Clusters']:
+        print([item][0]['Id'], [item][0]['Name'])
