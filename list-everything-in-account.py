@@ -47,3 +47,10 @@ for region in regions:
     responsesetemr = emrc.list_clusters()
     for item in responsesetemr['Clusters']:
         print([item][0]['Id'], [item][0]['Name'])
+#Information on Glacier Vaults
+    print("Glacier Information")
+    print("--------------------------------------------------------------------------------------------------")
+    glaciersession = session.client('glacier', region_name=region)
+    responsesetglac = glaciersession.list_vaults()
+    for item in responsesetglac['vaultList']:
+        print([item][0]['vaultName'], [item][0]['LastInventoryDate'])
