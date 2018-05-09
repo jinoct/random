@@ -5,8 +5,8 @@ import boto3
 
 access_key = input("Enter AWS_ACCESS_KEY_ID: ")
 secret_key = input("Enter AWS_SECRET_ACCESS_KEY: ")
-session_token = input('Enter AWS_SESSION_TOKEN: ')
-session = boto3.Session(aws_access_key_id=access_key, aws_secret_access_key=secret_key, aws_session_token=session_token)
+
+session = boto3.Session(aws_access_key_id=access_key, aws_secret_access_key=secret_key)
 # Information on all the s3 buckets
 print("S3 Information")
 print("-----------------------------------------------------------------------------------------------------")
