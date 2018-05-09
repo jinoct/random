@@ -1,2 +1,3 @@
 # random
-my random scripts
+
+Various scripts that can be used in AWS environments for generating information easily.
